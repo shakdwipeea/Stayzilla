@@ -1,0 +1,73 @@
+<div>
+	<div class="row">
+		<div class="row">
+			<div class="large-10 columns">
+			<input type="text" ng-model="place" placeholder="Search a location"/>
+			</div>
+			<div class="large-2 columns">
+				<button class="button" ng-click="search()">Submit	</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-6 columns"  ng-show="loading">
+				<div class="progress">
+						<span id="met">Hang on!! Fetching content from Stayzilla.........</span>
+					</div>
+			</div>
+			
+			<div>
+				<div ng-show="!loading" class="large-6 columns">
+
+				<div class="panel" >
+					<h1 class="h1"> Stayzilla Recommends </h1>
+				</div>
+
+				<div class="panel" ng-show = "ini">
+					Nothing here....... 
+				</div>
+
+				<div ng-repeat="hotel in hotels  | orderBy:'-frequency'" >
+					<div ng-click="displayHotel(hotel.name,$index)" class="panel" ng-class="{sel: $index == selected}">
+						{{hotel.name}}
+						<div class="progress">
+							<span class="meter" ng-style="{width: hotel.popularity + '%'}"></span>
+						</div>
+					</div>
+				</div>
+				</div>
+
+				<!-- <div class="large-6 columns" ng-show="loading2">
+					<div class="progress">
+						<span id="met" > Loading.........</span>
+					</div>
+				</div> -->
+
+				<div ng-show="loading2" class="large-6 columns">
+				
+					<div class="panel">
+						Address: {{hotelDetail.address}}
+					</div>
+					
+				
+					<div class="panel">
+						Day Room Availablity: {{hotelDetail.dayRoomAvailable}}
+					</div>
+				
+
+				
+					<div class="panel">
+						Price: {{hotelDetail.rawPrice}}
+					</div>
+
+
+				
+					<div class="panel">
+						Star Rating: {{hotelDetail.starRating}}
+					</div>
+			
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
