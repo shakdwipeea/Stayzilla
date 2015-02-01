@@ -5,7 +5,7 @@ module.exports = function  (app) {
 		var city = req.query.city;
 		console.log(city);
 
-		request("http://192.168.1.113:3336/stayz/?city=" + city, function  (err,respo,body) {
+		request("http://walker.servequake.com:3000/stayz/?city=" + city, function  (err,respo,body) {
 			console.log(body);
 			var data = JSON.parse(body);
 			res.end(JSON.stringify(data.dict));
