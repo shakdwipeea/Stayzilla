@@ -15,7 +15,7 @@ def akash (request) :
 	x= request.GET.get('city','')
 	print(x)
 	response = ''
-	m=open("/Users/raghavrastogi/nltk_data/corpora/webtext/hackathon_chat_data.csv" ,
+	m=open("hackathon_chat_data.csv" ,
 	     encoding = 'ISO-8859-2'
 	     )
 	reader = csv.reader(m)
